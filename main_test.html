@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>私人唱片</title>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 上面的Link是用来添加播放器的音符图标的 -->
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-section">
+            <div class="site-info">
+                <h2>私人唱片</h2>
+                <p>探索未知的音乐领域</p>
+            </div>
+        </div>
+        
+        <ul class="nav-links">
+            <li class="nav-item active"><a href="main_test.html">首页</a></li>
+            <li class="nav-item"><a href="music.html">音乐</a></li>
+            <li class="nav-item"><a href="trend.html">动向</a></li>
+            <li class="nav-item"><a href="about.html">关于我们</a></li>
+        </ul>
+        
+        <!-- 用户信息或登录按钮 -->
+        <div class="user-section" id="user-section">
+            <button class="auth-btn" id="login-btn">登录 / 注册</button>
+        </div>
+    </nav>
+    
+    <!-- 欢迎区域 -->
+    <div class="welcome-section" id="welcome-section">
+        <h2>欢迎来到私人唱片</h2>
+        <p>私人音乐网站</p>
+        <button class="auth-btn" id="welcome-login-btn">立即开始</button>
+    </div>
+    
+    <!-- 主内容区域 -->
+    <div class="main-content" id="main-content">
+        <div class="demo-content">
+            <h2>探索音乐世界</h2>
+            <p>登录成功！现在您可以浏览和探索我们的音乐库。</p>
+        </div>
+        
+        <h3 class="mt-8 text-xl">站主精选</h3>
+        <div class="music-cards">
+            <div class="music-card" data-index="0">
+                <img src="img/still the same.jpg" alt="音乐封面">
+                <h3>Still the Same</h3>
+                <p>无论花谢霜飞，雨打风过，</p>
+                <p>依旧守候今日的日落，始终期待明天的天色。</p>
+            </div>
+            <div class="music-card" data-index="1">
+                <img src="img/see you soon.jpg" alt="音乐封面">
+                <h3>我们明日见</h3>
+                <p>“......她们会渡船而来，我们明日见。”</p>
+            </div>
+            <div class="music-card" data-index="2">
+                <img src="img/speed of light.jpg" alt="音乐封面">
+                <h3>Speed of Light</h3>
+                <p>在无人告知方向的黑夜里，独自以光速探寻正确的道路。</p>
+                <p>无论看待世界是简单，亦或是复杂，大地和天空始终让开始与结束相连。</p>
+                <p>《Speed of Light》，通过乐调铺陈的驰放与内敛感，希望能为您呈现超脱于现实的惬意想象空间。</p>
+            </div>
+            <div class="music-card" data-index="3">
+                <img src="img/Ill-gotten gains.jpg" alt="音乐封面">
+                <h3>不义之财</h3>
+                <p>我的眼泪不能代替他们表达自己的悲伤。但我的铳械会为他们的悲伤而鸣。</p>
+            </div>
+            <div class="music-card" data-index="4">
+                <img src="img/morning dew.jpg" alt="音乐封面">
+                <h3>Morning Dew</h3>
+                <p>This room was built for one chair only</p>
+                <p>I’m not empty I’m just lonely</p>
+                <p>Oh no</p>
+                <p>I whisper as you fade</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 登录框 -->
+    <div class="modal" id="login-modal">
+        <div class="login-box">
+            <span class="close-btn" id="close-btn">&times;</span>
+            <h1 id="form-title">登录</h1>
+            <div class="input-box">
+                <div class="input-text">
+                    <input type="text" placeholder="用户名" id="username">
+                </div>
+            
+                <div class="input-text">
+                    <input type="password" placeholder="密码" id="password">
+                </div>
+                <div class="message" id="message"></div>
+            <button class="input-btn" id="action-btn">
+                登录
+            </button>
+            <div class="sign-up">
+                还没账户？<a id="toggle-link">立即注册</a>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 音乐播放器 -->
+     <!-- 最左边 -->
+    <div class="music-player" id="music-player">
+        <div class="current-song">
+            <img src="img/still the same.jpg" alt="歌曲封面" class="song-cover" id="song-cover">
+            <div class="song-info">
+                <span class="song-title" id="song-title">Still the Same</span>
+                <span class="song-artist" id="song-artist">塞壬唱片-MSR</span>
+            </div>
+        </div>
+        
+        <!-- 中间 -->
+        <div class="player-controls">
+            <button class="control-btn" id="prev-btn">
+                <i class="fa fa-step-backward"></i>
+                <!-- 上一首图标 -->
+            </button>
+            <button class="control-btn" id="play-btn">
+                <i class="fa fa-play"></i>
+                <!-- 播放器图标 -->
+            </button>
+            <button class="control-btn" id="next-btn">
+                <i class="fa fa-step-forward"></i>
+                <!-- 下一首图标 -->
+            </button>
+        </div>
+        
+        <!-- 最右边 -->
+        <div class="volume-control">
+            <span class="volume-icon">
+                <i class="fa fa-volume-up"></i>
+            </span>
+            <input type="range" min="0" max="100" value="80" class="volume-slider" id="volume-slider">
+        </div>
+    </div>
+    
+    <!-- 音频元素 -->
+    <audio id="audio-player" preload="metadata" src="mp3/Still the same.mp3"></audio>
+    <script src="main.js"></script>
+</body>
+</html>

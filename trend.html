@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>私人唱片</title>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="trend.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-section">
+            <div class="site-info">
+                <h2>私人唱片</h2>
+                <p>探索未知的音乐领域</p>
+            </div>
+        </div>
+        
+        <ul class="nav-links">
+            <li class="nav-item"><a href="main_test.html">首页</a></li>
+            <li class="nav-item"><a href="music.html">音乐</a></li>
+            <li class="nav-item active"><a href="trend.html">动向</a></li>
+            <li class="nav-item"><a href="about.html">关于我们</a></li>
+        </ul>
+        
+        <!-- 用户信息或登录按钮 -->
+        <div class="user-section" id="user-section">
+            <button class="auth-btn" id="login-btn">登录 / 注册</button>
+        </div>
+    </nav>
+    
+    <!-- 主内容区域 -->
+    <div class="main-content">
+        <div class="news-header">
+            <h1>音乐动向</h1>
+            <p>分享我知道的秘密</p>
+        </div>
+        
+        <div class="news-timeline">
+            <!-- 动向条目1 -->
+            <div class="news-item">
+                <div class="news-dot"></div>
+                <div class="news-content">
+                    <h3 class="news-title">2021年音律联觉</h3>
+                    <p class="news-summary">乐章破浪前行，望故人自远方归来。</p>
+                    <img src="img/2021.jpg" alt="Speed of Light" class="news-image">
+                </div>
+            </div>
+            
+            <!-- 动向条目2 -->
+            <div class="news-item">
+                <div class="news-dot"></div>
+                <div class="news-content">
+                    <h3 class="news-title">2023年音律联觉</h3>
+                    <p class="news-summary">忘乡梦境，水墨晕染。蒸汽氤氲，夕色醉人</p>
+                    <img src="img/2023.jpg" alt="冬季巡演海报" class="news-image">
+                </div>
+            </div>
+            
+            <!-- 动向条目3 -->
+            <div class="news-item">
+                <div class="news-dot"></div>
+                <div class="news-content">
+                    <h3 class="news-title">2024年音律联觉</h3>
+                    <p class="news-summary">于如梦似幻的路途中齐奏，于道阻且长的时光中独奏</p>
+                    <img src="img/2024.jpg" alt="创作团队专访" class="news-image">
+                </div>
+            </div>
+            
+            <!-- 动向条目4 -->
+            <div class="news-item">
+                <div class="news-dot"></div>
+                <div class="news-content">
+                    <h3 class="news-title">2025年音律联觉</h3>
+                    <p class="news-summary">让旋律响彻，让节奏不止！</p>
+                    <img src="img/2025.jpg" alt="专辑销量数据" class="news-image">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 音乐播放器 -->
+     <!-- 最左边 -->
+    <div class="music-player" id="music-player">
+        <div class="current-song">
+            <img src="img/still the same.jpg" alt="歌曲封面" class="song-cover" id="song-cover">
+            <div class="song-info">
+                <span class="song-title" id="song-title">Still the Same</span>
+                <span class="song-artist" id="song-artist">塞壬唱片-MSR</span>
+            </div>
+        </div>
+        
+        <!-- 中间 -->
+        <div class="player-controls">
+            <button class="control-btn" id="prev-btn">
+                <i class="fa fa-step-backward"></i>
+                <!-- 上一首图标 -->
+            </button>
+            <button class="control-btn" id="play-btn">
+                <i class="fa fa-play"></i>
+                <!-- 播放器图标 -->
+            </button>
+            <button class="control-btn" id="next-btn">
+                <i class="fa fa-step-forward"></i>
+                <!-- 下一首图标 -->
+            </button>
+        </div>
+        
+        <!-- 最右边 -->
+        <div class="volume-control">
+            <span class="volume-icon">
+                <i class="fa fa-volume-up"></i>
+            </span>
+            <input type="range" min="0" max="100" value="80" class="volume-slider" id="volume-slider">
+        </div>
+    </div>
+    
+    <!-- 音频元素 -->
+    <audio id="audio-player" preload="metadata" src="mp3/Still the same.mp3"></audio>
+    
+    <script src="trend.js"></script>
+</body>
+</html>
+    

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>私人唱片</title>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 上面的Link是用来添加播放器的音符图标的 -->
+    <link rel="stylesheet" href="music.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-section">
+            <div class="site-info">
+                <h2>私人唱片</h2>
+                <p>探索未知的音乐领域</p>
+            </div>
+        </div>
+        
+        <ul class="nav-links">
+            <li class="nav-item"><a href="main_test.html">首页</a></li>
+            <li class="nav-item active"><a href="music.html">音乐</a></li>
+            <li class="nav-item"><a href="trend.html">动向</a></li>
+            <li class="nav-item"><a href="about.html">关于我们</a></li>
+        </ul>
+        
+        <!-- 用户信息或登录按钮 -->
+        <div class="user-section" id="user-section">
+            <button class="auth-btn" id="login-btn">登录 / 注册</button>
+        </div>
+    </nav>
+    
+    <div class="main">
+        <!-- 第一行 -->
+        <div class="album-cover" data-index="0">
+            <img src="img/still the same.jpg" alt="专辑封面1">
+        </div>
+        <div class="album-cover" data-index="1">
+            <img src="img/see you soon.jpg" alt="专辑封面2">
+        </div>
+        <div class="album-cover" data-index="2">
+            <img src="img/speed of light.jpg" alt="专辑封面3">
+        </div>
+        <div class="album-cover" data-index="3">
+            <img src="img/Ill-gotten gains.jpg" alt="专辑封面4">
+        </div>
+        <div class="album-cover" data-index="4">
+            <img src="img/morning dew.jpg" alt="专辑封面5">
+        </div>
+        
+        <!-- 第二行 -->
+        <div class="album-cover" data-index="5">
+            <img src="img/All sentient beings.jpg" alt="专辑封面6">
+        </div>
+        <div class="album-cover" data-index="6">
+            <img src="img/Normal.jpg" alt="专辑封面7">
+        </div>
+        <div class="album-cover" data-index="7">
+            <img src="img/浸春芜.jpg" alt="专辑封面8">
+        </div>
+        <div class="album-cover" data-index="8">
+            <img src="img/Misty Memory.jpg" alt="专辑封面9">
+        </div>
+        <div class="album-cover" data-index="9">
+            <img src="img/Little Wish.jpg" alt="专辑封面10">
+        </div>
+    </div>
+
+    <!-- 音乐播放器 -->
+    <!-- 最左边 -->
+    <div class="music-player" id="music-player">
+        <div class="current-song">
+            <img src="img/still the same.jpg" alt="歌曲封面" class="song-cover" id="song-cover">
+            <div class="song-info">
+                <span class="song-title" id="song-title">Still the Same</span>
+                <span class="song-artist" id="song-artist">塞壬唱片-MSR</span>
+            </div>
+        </div>
+        
+        <!-- 中间 -->
+        <div class="player-controls">
+            <button class="control-btn" id="prev-btn">
+                <i class="fa fa-step-backward"></i>
+                <!-- 上一首图标 -->
+            </button>
+            <button class="control-btn" id="play-btn">
+                <i class="fa fa-play"></i>
+                <!-- 播放器图标 -->
+            </button>
+            <button class="control-btn" id="next-btn">
+                <i class="fa fa-step-forward"></i>
+                <!-- 下一首图标 -->
+            </button>
+        </div>
+        
+        <!-- 最右边 -->
+        <div class="volume-control">
+            <span class="volume-icon">
+                <i class="fa fa-volume-up"></i>
+            </span>
+            <input type="range" min="0" max="100" value="80" class="volume-slider" id="volume-slider">
+        </div>
+    </div>
+    
+    <!-- 音频元素 -->
+    <audio id="audio-player" preload="metadata" src="mp3/Still the same.mp3"></audio>
+    
+    <script src="music.js"></script>
+</body>
+</html>

@@ -1,0 +1,555 @@
+/* 总设置 - 重置所有元素的默认样式 */
+        * {
+            margin: 0; /* 清除外边距 */
+            padding: 0; /* 清除内边距 */
+            box-sizing: border-box; /* 设置盒模型，宽度和高度包含内边距和边框 */
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; /* 设置字体 */
+        }
+        
+        /* 页面主体样式 */
+        body {
+            background-color: #1a1a2e; /* 深蓝色背景 */
+            color: #e6e6e6; /* 浅灰色文字 */
+            padding: 20px; /* 页面内边距 */
+            min-height: 100vh; /* 最小高度为整个视口高度 */
+            padding-bottom: 100px; /* 底部留出空间给播放器 */
+        }
+
+        
+        /* 导航栏最外层容器 */
+        .navbar {
+            background-color: #0f0f1b; /* 深色背景 */
+            border-radius: 8px; /* 圆角边框 */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* 阴影效果 */
+            display: flex; /* 弹性布局 */
+            align-items: center; /* 垂直居中对齐 */
+            justify-content: space-between; /* 子元素两端对齐 */
+            padding: 0 30px; /* 左右内边距 */
+            height: 100px; /* 固定高度 */
+            position: relative; /* 相对定位，为伪元素做准备 */
+            overflow: hidden; /* 隐藏溢出内容 */
+        }
+        
+        /* 导航栏顶部装饰线 使用伪元素实现 */
+        .navbar::before {
+            content: ''; /* 伪元素必须内容 */
+            position: absolute; /* 绝对定位 */
+            top: 0; /* 定位到顶部 */
+            left: 0; /* 定位到左侧 */
+            width: 100%; /* 全宽 */
+            height: 2px; /* 细线高度 */
+            background: linear-gradient(90deg, #00d4ff, #00ffaa, #00d4ff);  /* 渐变背景 */
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.7);    /* 发光效果 */
+        }
+        
+        /* 导航左侧信息区域 */
+        .logo-section {
+            display: flex; /* 弹性布局 */
+            align-items: center; /* 垂直居中 */
+            width: 30%; /* 占据30%宽度 */
+        }
+        
+        /* 网站信息文字区域 */
+        .site-info {
+            max-width: 100%;    /* 最大宽度限制 */
+        }
+        
+        /* 网站标题样式 */
+        .site-info h2 {
+            font-size: 24px; /* 字体大小 */
+            font-weight: 700; /* 字体粗细 */
+            background: linear-gradient(90deg, #00d4ff, #00ffaa); /* 渐变背景 */
+            -webkit-background-clip: text; /* 背景裁剪到文字（Webkit浏览器） */
+            background-clip: text; /* 背景裁剪到文字 */
+            color: transparent; /* 文字颜色透明，显示背景渐变 */
+            margin-bottom: 5px; /* 底部外边距 */
+            letter-spacing: 1px; /* 字母间距 */
+        }
+        
+        /* 网站描述文字 */
+        .site-info p {
+            font-size: 12px; /* 小字号 */
+            color: #a0a0a0; /* 浅灰色 */
+            line-height: 1.4; /* 行高 */
+        }
+        
+        /* 导航链接部分容器 */
+        .nav-links {
+            display: flex; /* 弹性布局 */
+            list-style: none; /* 移除列表样式 */
+            height: 100%; /* 继承父元素高度 */
+        }
+        
+        /* 单个导航项目 */
+        .nav-item {
+            position: relative; /* 相对定位，为伪元素做准备 */
+            padding: 0 40px; /* 左右内边距 */
+            height: 100%; /* 继承父元素高度 */
+            display: flex; /* 弹性布局 */
+            align-items: center; /* 垂直居中 */
+            transition: all 0.3s ease; /* 所有属性过渡动画，0.3秒，缓动效果 */
+        }
+        
+        /* 导航链接文字 */
+        .nav-item a {
+            color: #e6e6e6; /* 文字颜色 */
+            text-decoration: none; /* 移除下划线 */
+            font-weight: 500; /* 中等字重 */
+            font-size: 16px; /* 字体大小 */
+            letter-spacing: 0.5px; /* 字母间距 */
+            transition: color 0.3s ease; /* 颜色过渡动画 */
+        }
+        
+        /* 鼠标悬停时的文字颜色变化 */
+        .nav-item:hover a {
+            color: #00ffaa; /* 悬停时变为亮绿色 */
+        }
+        
+        /* 导航项底部隐藏线条 - 使用伪元素实现 */
+        .nav-item::after {
+            content: ''; /* 伪元素必须内容 */
+            position: absolute; /* 绝对定位 */
+            bottom: 0; /* 定位到底部 */
+            left: 50%; /* 从中间开始 */
+            width: 0; /* 初始宽度为0 */
+            height: 3px; /* 线条高度 */
+            background: linear-gradient(90deg, #00d4ff, #00ffaa); /* 渐变背景 */
+            transition: all 0.3s ease; /* 所有属性过渡动画 */
+            transform: translateX(-50%); /* 水平居中 */
+            border-radius: 2px 2px 0 0; /* 顶部圆角 */
+        }
+        
+        /* 鼠标悬停时显示底部线条 */
+        .nav-item:hover::after {
+            width: 80%; /* 悬停时宽度变为80% */
+        }
+        
+        /* 当前活动页面的导航项 */
+        .nav-item.active a {
+            color: #00d4ff; /* 活动项文字颜色 */
+        }
+        
+        /* 当前活动页面的底部线条 */
+        .nav-item.active::after {
+            width: 80%; /* 显示80%宽度 */
+            background: #00d4ff; /* 单色背景 */
+        }
+
+        /* 中间展示部分 */
+        .demo-content {
+            max-width: 800px; /* 最大宽度限制 */
+            padding: 30px; /* 内边距 */
+            background-color: rgba(255, 255, 255, 0.05); /* 半透明背景 */
+            border-radius: 8px; /* 圆角 */
+            text-align: center; /* 文字居中 */
+            margin: 40px auto; /* 上下外边距40px，水平居中 */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* 阴影效果 */
+        }
+        
+        /* 模态框背景 - 登录/注册弹窗 */
+        .modal {
+            display: none; /* 默认隐藏 */
+            position: fixed; /* 固定定位 */
+            top: 0; /* 定位到顶部 */
+            left: 0; /* 定位到左侧 */
+            width: 100%; /* 全宽 */
+            height: 100%; /* 全高 */
+            background-color: rgba(0, 0, 0, 0.7); /* 半透明黑色背景 */
+            z-index: 1000; /* 高层级，确保在最前面 */
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+        }
+        
+        /* 登录框样式 */
+        .login-box {
+            display: flex; /* 弹性布局 */
+            justify-content: center; /* 水平居中 */
+            align-content: space-around; /* 垂直方向空间分布 */
+            flex-wrap: wrap; /* 允许换行 */
+            width: 600px; /* 固定宽度 */
+            height: 400px; /* 固定高度 */
+            background-color: rgba(0,0,0,.8); /* 半透明黑色背景 */
+            border: 10px; /* 边框 */
+            padding: 20px 50px ; /* 内边距 */
+            border-radius: 20px; /* 圆角 */
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3); /* 发光阴影 */
+            position: relative; /* 相对定位 */
+        }
+        
+        /* 关闭按钮 */
+        .close-btn {
+            position: absolute; /* 绝对定位 */
+            top: 15px; /* 距离顶部15px */
+            right: 15px; /* 距离右侧15px */
+            color: #fff; /* 白色 */
+            font-size: 24px; /* 字体大小 */
+            cursor: pointer; /* 鼠标指针 */
+            transition: color 0.3s ease; /* 颜色过渡动画 */
+        }
+        
+        /* 关闭按钮悬停效果 */
+        .close-btn:hover {
+            color: #00ffaa; /* 悬停时变为亮绿色 */
+        }
+        
+        /* 登录框标题 */
+        .login-box h1 {
+            width: 100%; /* 全宽 */
+            display: flex; /* 弹性布局 */
+            justify-content: center; /* 水平居中 */
+            color: #fff; /* 白色 */
+            font-size: 30px; /* 字体大小 */
+            margin-top: 20px; /* 顶部外边距 */
+        }
+        
+        /* 输入框容器 */
+        .login-box .input-box {
+            display: flex; /* 弹性布局 */
+            flex-wrap: wrap; /* 允许换行 */
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            width: 100%; /* 全宽 */
+        }
+        
+        /* 单个输入框区域 */
+        .login-box .input-box .input-text {
+            width: 100%; /* 全宽 */
+            display: flex; /* 弹性布局 */
+            justify-content: center; /* 水平居中 */
+        }
+        
+        /* 输入框样式 */
+        .login-box .input-box .input-text input {
+            border: 0px; /* 无边框 */
+            padding: 10px; /* 内边距 */
+            border-bottom: 1px solid #00d4ff; /* 底部边框 */
+            background-color: #ffffff00; /* 透明背景 */
+            color: #fff; /* 白色文字 */
+            margin-top: 20px; /* 顶部外边距 */
+            width: 80%; /* 宽度80% */
+            font-size: 16px; /* 字体大小 */
+            transition: border-color 0.3s ease; /* 边框颜色过渡动画 */
+        }
+        
+        /* 输入框聚焦效果 */
+        .login-box .input-box .input-text input:focus {
+            outline: none; /* 移除默认轮廓 */
+            border-color: #00ffaa; /* 聚焦时边框变为亮绿色 */
+        }
+        
+        /* 输入框占位符样式 */
+        input::placeholder{
+            color: #aaa; /* 浅灰色 */
+        }
+        
+        /* 登录/注册按钮 */
+        .login-box .input-box .input-btn {
+            display: flex; /* 弹性布局 */
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            margin-top: 30px; /* 顶部外边距 */
+            width: 160px; /* 固定宽度 */
+            height: 40px; /* 固定高度 */
+            color: #fff; /* 白色文字 */
+            background: linear-gradient(12deg,#00d4ff 0%,#00ffaa 100%); /* 渐变背景 */
+            border:none; /* 无边框 */
+            border-radius: 25px; /* 圆角 */
+            cursor: pointer; /* 鼠标指针 */
+            font-size: 16px; /* 字体大小 */
+            font-weight: 500; /* 中等字重 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* 变换和阴影过渡动画 */
+        }
+        
+        /* 按钮悬停效果 */
+        .login-box .input-box .input-btn:hover {
+            transform: translateY(-2px); /* 向上移动2px */
+            box-shadow: 0 5px 15px rgba(0, 255, 170, 0.4); /* 阴影效果 */
+        }
+        
+        /* 注册提示区域 */
+        .login-box .input-box .sign-up {
+            width: 100%; /* 全宽 */
+            display: flex; /* 弹性布局 */
+            justify-content: center; /* 水平居中 */
+            margin-top: 30px; /* 顶部外边距 */
+            color: white; /* 白色文字 */
+            font-size: 15px; /* 字体大小 */
+        }
+        
+        /* 注册链接 */
+        .login-box .input-box .sign-up a {
+            color: #00d4ff; /* 蓝色 */
+            text-decoration: none; /* 移除下划线 */
+            margin-left: 5px; /* 左侧外边距 */
+            transition: color 0.3s ease; /* 颜色过渡动画 */
+        }
+        
+        /* 注册链接悬停效果 */
+        .login-box .input-box .sign-up a:hover {
+            color: #00ffaa; /* 悬停时变为亮绿色 */
+            text-decoration: underline; /* 添加下划线 */
+        }
+        
+        /* 消息提示框 */
+        .message {
+            width: 100%; /* 全宽 */
+            text-align: center; /* 文字居中 */
+            margin-top: 20px; /* 顶部外边距 */
+            padding: 10px; /* 内边距 */
+            border-radius: 5px; /* 圆角 */
+            display: none; /* 默认隐藏 */
+        }
+        
+        /* 成功消息样式 */
+        .success {
+            background-color: rgba(46, 204, 113, 0.7); /* 半透明绿色背景 */
+            color: white; /* 白色文字 */
+        }
+        
+        /* 错误消息样式 */
+        .error {
+            background-color: rgba(231, 76, 60, 0.7); /* 半透明红色背景 */
+            color: white; /* 白色文字 */
+        }
+        
+        /* 用户信息区域 */
+        .user-section {
+            display: flex; /* 弹性布局 */
+            align-items: center; /* 垂直居中 */
+            padding-left: 20px; /* 左侧内边距 */
+        }
+        
+        /* 用户信息显示 */
+        .user-info {
+            display: flex; /* 弹性布局 */
+            align-items: center; /* 垂直居中 */
+            cursor: pointer; /* 鼠标指针 */
+        }
+        
+        /* 用户名样式 */
+        .user-name {
+            color: #00d4ff; /* 蓝色 */
+            font-weight: 500; /* 中等字重 */
+            margin-right: 10px; /* 右侧外边距 */
+        }
+        
+        /* 退出按钮 */
+        .logout-btn {
+            color: #a0a0a0; /* 浅灰色 */
+            background: none; /* 透明背景 */
+            border: none; /* 无边框 */
+            cursor: pointer; /* 鼠标指针 */
+            font-size: 14px; /* 字体大小 */
+            transition: color 0.3s ease; /* 颜色过渡动画 */
+        }
+        
+        /* 退出按钮悬停效果 */
+        .logout-btn:hover {
+            color: #ff4d4d; /* 悬停时变为红色 */
+        }
+        
+        /* 登录/注册按钮 */
+        .auth-btn {
+            background: linear-gradient(12deg,#00d4ff 0%,#00ffaa 100%); /* 渐变背景 */
+            color: #0f0f1b; /* 深色文字 */
+            border: none; /* 无边框 */
+            padding: 8px 16px; /* 内边距 */
+            border-radius: 20px; /* 圆角 */
+            font-weight: 500; /* 中等字重 */
+            cursor: pointer; /* 鼠标指针 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* 变换和阴影过渡动画 */
+        }
+        
+        /* 按钮悬停效果 */
+        .auth-btn:hover {
+            transform: translateY(-2px); /* 向上移动2px */
+            box-shadow: 0 5px 15px rgba(0, 255, 170, 0.4); /* 阴影效果 */
+        }
+        
+        /* 主内容区域 */
+        .main-content {
+            margin-top: 40px; /* 顶部外边距 */
+            display: none; /* 默认隐藏 */
+        }
+        
+        /* 音乐卡片网格布局 */
+        .music-cards {
+            display: grid; /* 网格布局 */
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 自动填充列，最小250px */
+            gap: 20px; /* 网格间距 */
+            margin:30px auto; /* 外边距 */
+        }
+        
+        /* 单个音乐卡片 */
+        .music-card {
+            background-color: rgba(255, 255, 255, 0.05); /* 半透明背景 */
+            border-radius: 8px; /* 圆角 */
+            padding: 20px; /* 内边距 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* 变换和阴影过渡动画 */
+            cursor: pointer; /* 鼠标指针 */
+        }
+        
+        /* 音乐卡片悬停效果 */
+        .music-card:hover {
+            transform: translateY(-5px); /* 向上移动5px */
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.2); /* 阴影效果 */
+        }
+        
+        /* 音乐卡片图片 */
+        .music-card img {
+            width: 100%; /* 全宽 */
+            border-radius: 4px; /* 圆角 */
+            margin-bottom: 15px; /* 底部外边距 */
+        }
+        
+        /* 音乐卡片标题 */
+        .music-card h3 {
+            color: #fff; /* 白色 */
+            margin-bottom: 5px; /* 底部外边距 */
+        }
+        
+        /* 音乐卡片描述 */
+        .music-card p {
+            color: #a0a0a0; /* 浅灰色 */
+            font-size: 14px; /* 字体大小 */
+        }
+        
+        /* 欢迎区域 */
+        .welcome-section {
+            text-align: center; /* 文字居中 */
+            padding: 60px 20px; /* 内边距 */
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 255, 170, 0.1) 100%); /* 渐变背景 */
+            border-radius: 12px; /* 圆角 */
+            margin-top: 40px; /* 顶部外边距 */
+        }
+        
+        /* 欢迎标题 */
+        .welcome-section h2 {
+            font-size: 36px; /* 字体大小 */
+            margin-bottom: 20px; /* 底部外边距 */
+            background: linear-gradient(90deg, #00d4ff, #00ffaa); /* 渐变背景 */
+            -webkit-background-clip: text; /* 背景裁剪到文字 */
+            background-clip: text; /* 背景裁剪到文字 */
+            color: transparent; /* 文字透明 */
+        }
+        
+        /* 欢迎描述 */
+        .welcome-section p {
+            font-size: 18px; /* 字体大小 */
+            color: #a0a0a0; /* 浅灰色 */
+            max-width: 600px; /* 最大宽度 */
+            margin: 0 auto 30px; /* 外边距 */
+        }
+        
+        /* 音乐播放器 */
+        .music-player {
+            position: fixed; /* 固定定位 */
+            bottom: 0; /* 定位到底部 */
+            left: 0; /* 定位到左侧 */
+            width: 100%; /* 全宽 */
+            background-color: rgba(15, 15, 27, 0.9); /* 半透明背景 */
+            backdrop-filter: blur(10px); /* 毛玻璃效果 */
+            padding: 15px 30px; /* 内边距 */
+            display: flex; /* 弹性布局 */
+            align-items: center; /* 垂直居中 */
+            justify-content: space-between; /* 两端对齐 */
+            border-top: 1px solid rgba(0, 212, 255, 0.3); /* 顶部边框 */
+            z-index: 100; /* 层级 */
+        }
+        
+        /* 播放控制按钮区域 */
+        .player-controls {
+            display: flex; /* 弹性布局 */
+            align-items: center; /* 垂直居中 */
+            gap: 20px; /* 按钮间距 */
+        }
+        
+        /* 控制按钮 */
+        .control-btn {
+            background: none; /* 透明背景 */
+            border: none; /* 无边框 */
+            color: #e6e6e6; /* 文字颜色 */
+            font-size: 20px; /* 字体大小 */
+            cursor: pointer; /* 鼠标指针 */
+            transition: color 0.3s ease; /* 颜色过渡动画 */
+        }
+        
+        /* 控制按钮悬停效果 */
+        .control-btn:hover {
+            color: #00ffaa; /* 悬停时变为亮绿色 */
+        }
+        
+        /* 音量控制区域 */
+        .volume-control {
+            display: flex; /* 弹性布局 */
+            align-items: center; /* 垂直居中 */
+            gap: 10px; /* 元素间距 */
+        }
+        
+        /* 音量图标 */
+        .volume-icon {
+            width: 20px;
+            color: #e6e6e6; /* 文字颜色 */
+            font-size: 18px; /* 字体大小 */
+        }
+        
+        /* 音量滑块 */
+        .volume-slider {
+            width: 100px; /* 固定宽度 */
+            -webkit-appearance: none; /* 移除默认样式 */
+            height: 3px; /* 高度 */
+            background: linear-gradient(90deg, #00d4ff, #00ffaa); /* 渐变背景 */
+            border-radius: 2px; /* 圆角 */
+            outline: none; /* 移除轮廓 */
+        }
+        
+        /* 音量滑块拇指样式 */
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none; /* 移除默认样式 */
+            width: 12px; /* 宽度 */
+            height: 12px; /* 高度 */
+            border-radius: 50%; /* 圆形 */
+            background: #00ffaa; /* 背景色 */
+            cursor: pointer; /* 鼠标指针 */
+            transition: transform 0.2s ease; /* 变换过渡动画 */
+        }
+        
+        /* 音量滑块拇指悬停效果 */
+        .volume-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2); /* 悬停时放大 */
+        }
+        
+        /* 当前歌曲信息区域 */
+        .current-song {
+            display: flex; /* 弹性布局 */
+            align-items: center; /* 垂直居中 */
+            gap: 15px; /* 元素间距 */
+            width: 200px; /* 固定宽度 */
+        }
+        
+        /* 歌曲封面 */
+        .song-cover {
+            width: 50px; /* 固定宽度 */
+            height: 50px; /* 固定高度 */
+            border-radius: 4px; /* 圆角 */
+            object-fit: cover; /* 图片填充方式 */
+        }
+        
+        /* 歌曲信息 */
+        .song-info {
+            display: flex; /* 弹性布局 */
+            flex-direction: column; /* 垂直排列 */
+            
+        }
+        
+        /* 歌曲标题 */
+        .song-title {
+            color: #fff; /* 白色 */
+            font-weight: 500; /* 中等字重 */
+        }
+        
+        /* 歌曲艺术家 */
+        .song-artist {
+            color: #a0a0a0; /* 浅灰色 */
+            font-size: 12px; /* 字体大小 */
+        }

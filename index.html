@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>进度条</title>
+    <link rel="stylesheet" href="loading.css">
+</head>
+<body>
+    <div class="overall">
+        <!-- 新增的标题div -->
+        <div class="title-glitch" id="titleText">MUSIC TRAVEL</div>
+        
+        <div class="elements" id="elements"></div>
+        <div class="text" id="text">0%</div>
+
+        <!-- SVG渐变定义 -->
+        <svg width="0" height="0">
+            <defs>
+                <linearGradient id="shapeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#00d4ff" />
+                    <stop offset="100%" stop-color="#00ffaa" />
+                </linearGradient>
+                <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#00d4ff" />
+                    <stop offset="50%" stop-color="#00ffaa" />
+                    <stop offset="100%" stop-color="#00d4ff" />
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+
+    <script src="loading.js"></script>
+</body>
+</html>

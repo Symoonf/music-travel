@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 私人唱片</title>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 上面的Link是用来添加播放器的音符图标的标的 -->
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-section">
+            <div class="site-info">
+                <h2>私人唱片</h2>
+                <p>探索未知的音乐领域</p>
+            </div>
+        </div>
+        
+        <ul class="nav-links">
+            <li class="nav-item"><a href="main_test.html">首页</a></li>
+            <li class="nav-item"><a href="music.html">音乐</a></li>
+            <li class="nav-item"><a href="trend.html">动向</a></li>
+            <li class="nav-item active"><a href="about.html">关于我们</a></li>
+        </ul>
+        
+        <!-- 用户信息或登录按钮 -->
+        <div class="user-section" id="user-section">
+            <button class="auth-btn" id="login-btn">登录 / 注册</button>
+        </div>
+    </nav>
+    
+    <!-- 主内容区域 -->
+    <div class="main-content" id="main-content">
+        <h2 class="page-title">关于我们</h2>
+        
+        <div class="about-content">
+            <p>这是一个用来作为音乐网盘的网站</p>
+            
+            <h3>我们的优点</h3>
+            <ul>
+                <li><strong>私人领域</strong> - 我们是一家私人网站，只服务于自己，服务于上帝</li>
+            </ul>
+            
+            <h3>我们的服务</h3>
+            <p>私人唱片提供以下服务：</p>
+            <ul>
+                <li><strong>音乐播放</strong> - 让我们能够随时享受喜欢的音乐。</li>
+                <li><strong>音乐动向</strong> - 让我们能够知晓关注的音乐会的最新动态。</li>
+            </ul>
+            
+            <h3>我们的团队</h3>
+            <p>由贪吃的猪，装饭的桶，疯狂的鹿，爱叫的狗组成，每一个都有着自己的秘密武器，四人合体更是来无穷惊喜呀。</p>
+
+            <h3>未来发展</h3>
+            <p>1.做到密码存储加密</p>
+            <p>2.增添音乐播放进度条</p>
+            <p>3.增加我喜欢的音乐模块</p>
+            <p>4.右下角增加选项框选歌部分</p>
+            <p>5.优化代码，增加上传音乐功能</p>
+            
+            <div class="contact-info">
+                <h3>联系我们</h3>
+                <ul>
+                    <li><span>2548096059@qq.com</span></li>
+                    <li><span>+86 150 8858 3912</span></li>
+                    <li><span>杭州市曙光路105号</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 音乐播放器 -->
+     <!-- 最左边 -->
+    <div class="music-player" id="music-player">
+        <div class="current-song">
+            <img src="img/still the same.jpg" alt="歌曲封面" class="song-cover" id="song-cover">
+            <div class="song-info">
+                <span class="song-title" id="song-title">Still the Same</span>
+                <span class="song-artist" id="song-artist">塞壬唱片-MSR</span>
+            </div>
+        </div>
+        
+        <!-- 中间 -->
+        <div class="player-controls">
+            <button class="control-btn" id="prev-btn">
+                <i class="fa fa-step-backward"></i>
+                <!-- 上一首图标 -->
+            </button>
+            <button class="control-btn" id="play-btn">
+                <i class="fa fa-play"></i>
+                <!-- 播放器图标 -->
+            </button>
+            <button class="control-btn" id="next-btn">
+                <i class="fa fa-step-forward"></i>
+                <!-- 下一首图标 -->
+            </button>
+        </div>
+        
+        <!-- 最右边 -->
+        <div class="volume-control">
+            <span class="volume-icon">
+                <i class="fa fa-volume-up"></i>
+            </span>
+            <input type="range" min="0" max="100" value="80" class="volume-slider" id="volume-slider">
+        </div>
+    </div>
+    
+    <!-- 音频元素 -->
+    <audio id="audio-player" preload="metadata" src="mp3/Still the same.mp3"></audio>
+    <script src="about.js"></script>
+</body>
+</html>
